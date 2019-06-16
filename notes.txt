@@ -1,0 +1,2 @@
+this is the mountain goat segmentation project
+this project calculates the molt percentage
