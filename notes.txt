@@ -1,2 +1,10 @@
 this is the mountain goat segmentation project
 this project calculates the molt percentage
+
+conda create --name tftutorial python=3.6
+conda activate tftutorial
+conda install -n tftutorial tensorflow-gpu
+conda install -n tftutorial matplotlib
+conda install -n tftutorial lxml
+conda install -n tftutorial pillow
+conda install -n tftutorial jupyter-notebook
