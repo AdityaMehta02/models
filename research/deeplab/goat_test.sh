@@ -42,8 +42,8 @@ python "${WORK_DIR}"/model_test.py -v
 # Go to datasets folder and download PASCAL VOC 2012 segmentation dataset.
 DATASET_DIR="datasets"
 cd "${WORK_DIR}/${DATASET_DIR}"
-#sh download_and_convert_goatVOC.sh
-tar xvf goat_molt_seg.tar
+sh download_and_convert_goatVOC.sh
+#tar xvf goat_molt_seg.tar
 
 # Go back to original directory.
 cd "${CURRENT_DIR}"
