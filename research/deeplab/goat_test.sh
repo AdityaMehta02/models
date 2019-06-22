@@ -73,7 +73,7 @@ cd "${CURRENT_DIR}"
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
 # Train 10 iterations.
-NUM_ITERATIONS=10
+NUM_ITERATIONS=5000
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \
@@ -139,7 +139,7 @@ python "${WORK_DIR}"/export_model.py \
   --atrous_rates=18 \
   --output_stride=16 \
   --decoder_output_stride=4 \
-  --num_classes=21 \
+  --num_classes=4 \
   --crop_size=513 \
   --crop_size=513 \
   --inference_scales=1.0
