@@ -49,7 +49,7 @@ download_and_uncompress() {
 }
 
 # Download the images.
-FILENAME="../goat_molt_seg.tar"
+FILENAME="../MGdevkit.tar"
 
 download_and_uncompress "${FILENAME}"
 
