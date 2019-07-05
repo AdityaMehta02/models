@@ -98,8 +98,8 @@ _ADE20K_INFORMATION = DatasetDescriptor(
 
 _GOAT_MOLT_SEG_INFORMATION = DatasetDescriptor(
     splits_to_sizes={
-        'train': 10,
-        'trainval': 14,
+        'train': 9,
+        'trainval': 13,
         'val': 4,
     },
     num_classes=4,
