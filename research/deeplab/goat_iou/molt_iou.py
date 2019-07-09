@@ -22,6 +22,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--indir', action='store', help='image path')
 parser.add_argument('-t', '--target', action='store', help='ground truth path')
 parser.add_argument('-o', '--outdir', action='store', help='output dir', default='Prediction')
+parser.add_argument('-m', '--mobilenet', action='store_true', help='mobilenet model')
 args = parser.parse_args()
 
 
@@ -166,7 +167,11 @@ FULL_LABEL_MAP = np.arange(len(LABEL_NAMES)).reshape(len(LABEL_NAMES), 1)
 FULL_COLOR_MAP = label_to_color_image(FULL_LABEL_MAP)
 
 download_path = '/home/adi/Workspace/models/research/deeplab/datasets/goat_molt_seg/exp/train_on_trainval_set/export/frozen_inference_graph.pb'
-MODEL = DeepLabModel(download_path)
+mobile_download_path = '/home/adi/Workspace/models/research/deeplab/datasets/goat_molt_seg/exp/train_on_trainval_set_mobilenetv2/export/frozen_inference_graph.pb' 
+if args.mobilenet:
+    MODEL = DeepLabModel(mobile_download_path)
+else:
+    MODEL = DeepLabModel(download_path)
 
 SAMPLE_IMAGE = 'image1'  # @param ['image1', 'image2', 'image3']
 IMAGE_URL = ''  #@param {type:"string"}
