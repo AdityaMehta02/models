@@ -73,7 +73,7 @@ cd "${CURRENT_DIR}"
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
 # Train 10 iterations.
-NUM_ITERATIONS=10000
+NUM_ITERATIONS=20000
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \

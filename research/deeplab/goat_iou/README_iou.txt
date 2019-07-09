@@ -1,0 +1,1 @@
+python molt_iou.py -i /home/adi/Workspace/models/research/deeplab/datasets/goat_molt_seg/MGdevkit/MG2012/JPEGImages/ -t /home/adi/Workspace/models/research/deeplab/datasets/goat_molt_seg/MGdevkit/MG2012/SegmentationClass/ -o prediction | tee iou_result.txt
