@@ -32,18 +32,24 @@ if not os.path.exists(args.outdir):
     os.makedirs(args.outdir)
 
 
-def resize(img, basewidth=500):
-    wpercent = (basewidth/float(img.size[0]))
-    hsize = int((float(img.size[1])*float(wpercent)))
-    return img.resize((basewidth,hsize))
+def resize(img, basewidth=513):
+    i_size = img.size
+    if i_size[0] > i_size[1]:
+        wpercent = (basewidth/float(img.size[0]))
+        hsize = int((float(img.size[1])*float(wpercent)))
+        return img.resize((basewidth,hsize))
+    else:
+        hpercent = (basewidth/float(img.size[1]))
+        wsize = int((float(img.size[0])*float(hpercent)))
+        return img.resize((wsize,basewidth))
 
 def palette_color(i, pal=PAL):
     idx = 3 * i
     return (pal[idx], pal[idx+1], pal[idx +2])
 
-   
+
 for fname in flist:
-    fpath = args.indir + '/' + fname  
+    fpath = args.indir + '/' + fname
     im = Image.open(fpath )
     print(im.format, im.mode, im.size)
 
@@ -52,7 +58,7 @@ for fname in flist:
         im = im.convert('RGB')
 
     img = resize(im)
-        
+
     imc = img.quantize(colors=3, method=1)
     c_list = imc.getcolors()
     c_pal  = imc.getpalette()

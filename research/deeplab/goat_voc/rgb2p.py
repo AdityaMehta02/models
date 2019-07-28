@@ -31,7 +31,7 @@ if not os.path.exists(args.outdir):
     os.makedirs(args.outdir)
 
 
-def resize(img, basewidth=500):
+def resize(img, basewidth=513):
     wpercent = (basewidth/float(img.size[0]))
     hsize = int((float(img.size[1])*float(wpercent)))
     return img.resize((basewidth,hsize))

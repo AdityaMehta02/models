@@ -166,8 +166,8 @@ LABEL_NAMES = np.asarray([
 FULL_LABEL_MAP = np.arange(len(LABEL_NAMES)).reshape(len(LABEL_NAMES), 1)
 FULL_COLOR_MAP = label_to_color_image(FULL_LABEL_MAP)
 
-download_path = '/home/adi/Workspace/models/research/deeplab/datasets/goat_molt_seg/exp/train_on_trainval_set/export/frozen_inference_graph.pb'
-mobile_download_path = '/home/adi/Workspace/models/research/deeplab/datasets/goat_molt_seg/exp/train_on_trainval_set_mobilenetv2/export/frozen_inference_graph.pb' 
+download_path = '/home/adi/IOUWorkspace/models/research/deeplab/datasets/goat_molt_seg/exp/train_on_trainval_set/export/frozen_inference_graph.pb'
+mobile_download_path = '/home/adi/IOUWorkspace/models/research/deeplab/datasets/goat_molt_seg/exp/train_on_trainval_set_mobilenetv2/export/frozen_inference_graph.pb'
 if args.mobilenet:
     MODEL = DeepLabModel(mobile_download_path)
 else:
@@ -210,9 +210,9 @@ def calc_iou():
         fpath = args.indir + '/' + fname
         tpath = args.target + '/' + fname.split('.')[0] + '.png'
         original_im = Image.open(fpath)
-        target_im = Image.open(tpath)
-        resized_im, seg_map = MODEL.run(original_im)
-        target_img = target_im.resize((resized_im.size[0], resized_im.size[1]))
+        target_img = Image.open(tpath)
+        resized_img, seg_map = MODEL.run(original_im)
+        #target_img = target_im.resize((resized_im.size[0], resized_im.size[1]))
         target_map = np.array(target_img)
         intersection = np.logical_and(target_map, seg_map)
         union = np.logical_or(target_map, seg_map)

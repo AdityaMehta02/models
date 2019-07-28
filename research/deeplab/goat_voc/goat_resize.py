@@ -8,7 +8,7 @@ from os import walk
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--indir', action='store', help='image path')
 parser.add_argument('-o', '--outdir', action='store', help='output dir', default='JPEGImages')
-parser.add_argument('-w', '--width', action='store', help='width', default='500')
+parser.add_argument('-w', '--width', action='store', help='width', default='513')
 args = parser.parse_args()
 
 
